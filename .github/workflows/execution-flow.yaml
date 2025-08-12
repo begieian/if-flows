@@ -55,3 +55,11 @@ jobs:
           name: dist-files
       - run: ls -l
       - run: echo "deploying ..."
+  report:
+    needs: [lint, deploy]
+    if: failure()
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "Something went wrong ..."
+          echo ${{ toJson(github) }}
