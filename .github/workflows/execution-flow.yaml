@@ -24,7 +24,9 @@ jobs:
           key: node-dep-${{ hashFiles('**/package-lock.json') }}
       - run: npm ci
       - run: npm run test
-      - uses: actions/upload-artifact@v4
+        id: test-id
+      - if: failure() && steps.test-id.outcome == 'failure'
+        uses: actions/upload-artifact@v4
         with:
           name: test-report
           path: test.json
