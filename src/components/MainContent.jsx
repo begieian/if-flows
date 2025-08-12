@@ -17,4 +17,4 @@ function MainContent() {
   );
 }
 
-export default MainContentasdasd;
+export default MainContent;
