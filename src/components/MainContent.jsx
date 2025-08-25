@@ -17,4 +17,4 @@ function MainContent() {
   );
 }
 
-export default MainContentzzz;
+export default MainContent;
